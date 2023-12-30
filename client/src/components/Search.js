@@ -57,13 +57,15 @@ const Search = () => {
    }catch(err){
     console.log(err);
    }
+   setUser(null);
+   setUsername("");
     // create user chats
   }
 
   return (
     <div className='border-b-2 border-b-white'>
       <div className='mt-2'>
-        <input className='bg-transparent placeholder-white text-white' type='text' placeholder='find a user' onKeyDown={handleKey} onChange={e => setUsername(e.target.value)}></input>
+        <input className='bg-transparent placeholder-white text-white' type='text' placeholder='find a user' value={username} onKeyDown={handleKey} onChange={e => setUsername(e.target.value)}></input>
       </div>
       {err && <span>user not found</span>}
       { user && <div onClick={handleSelect} className='mt-3 mb-3 flex gap-3 hover:bg-slate-900'>
